@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/grutt/udacity-c2-image-filter.git"
   },
-  "author": "",
+  "author": "Samuel Kyei",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/grutt/udacity-c2-image-filter/issues"
