@@ -37,9 +37,9 @@ import {
         .status(400)
         .send("'image_url' query parameter must be provided");
 
-    const filePath = await filterImageFromURL(image_url);
+    const filePath: string = await filterImageFromURL(image_url);
     res.addListener("finish", async () => {
-      const filePaths = getFilePaths();
+      const filePaths: string[] = getFilePaths();
       await deleteLocalFiles(filePaths);
     });
     res.sendFile(filePath);
