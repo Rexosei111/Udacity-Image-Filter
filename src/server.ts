@@ -36,8 +36,12 @@ import {
       return res
         .status(400)
         .send("'image_url' query parameter must be provided");
-
-    const filePath: string = await filterImageFromURL(image_url);
+    let filePath: string | null;
+    try {
+      filePath = await filterImageFromURL(image_url);
+    } catch (error) {
+      return res.status(400).send("Unable to retrieve image");
+    }
     res.addListener("finish", async () => {
       const filePaths: string[] = getFilePaths();
       await deleteLocalFiles(filePaths);
